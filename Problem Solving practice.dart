@@ -109,25 +109,39 @@ import 'dart:math';
 
 
 //6. this problem is fibonacci number
-void main(){
-  const int mod=1000000007;
-  int n=int.parse(stdin.readLineSync()!);
-  if(n==0){
-    print(n);
-    return;
-  }
-  if(n==1){
-    print(n);
-    return;
-  }
+// void main(){
+//   const int mod=1000000007;
+//   int n=int.parse(stdin.readLineSync()!);
+//   if(n==0){
+//     print(n);
+//     return;
+//   }
+//   if(n==1){
+//     print(n);
+//     return;
+//   }
 
-  int a=0;
-  int b=1;
-  int fib=0;
-  for(int i=2; i<=n; i++){
-    fib=(a+b)%mod;
-    a=b;
-    b=fib;
+//   int a=0;
+//   int b=1;
+//   int fib=0;
+//   for(int i=2; i<=n; i++){
+//     fib=(a+b)%mod;
+//     a=b;
+//     b=fib;
+//   }
+//   print(fib);
+// }
+
+
+
+//7.check vowel in string 
+void main(){
+  String vowel1=stdin.readLineSync()!;
+  String vowel=vowel1.toLowerCase();
+  if(vowel.contains('a')||vowel.contains('e')||vowel.contains('i')||vowel.contains('o')||vowel.contains('u')){
+    print("The string contains a vowel.");
   }
-  print(fib);
+  else{
+    print("The string does not contain any vowel.");
+  }
 }
