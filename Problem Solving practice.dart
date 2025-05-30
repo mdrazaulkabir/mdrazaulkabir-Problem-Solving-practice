@@ -135,13 +135,13 @@ import 'dart:math';
 
 
 //7.check vowel in string 
-void main(){
-  String vowel1=stdin.readLineSync()!;
-  String vowel=vowel1.toLowerCase();
-  if(vowel.contains('a')||vowel.contains('e')||vowel.contains('i')||vowel.contains('o')||vowel.contains('u')){
-    print("The string contains a vowel.");
-  }
-  else{
-    print("The string does not contain any vowel.");
-  }
-}
+// void main(){
+//   String vowel1=stdin.readLineSync()!;
+//   String vowel=vowel1.toLowerCase();
+//   if(vowel.contains('a')||vowel.contains('e')||vowel.contains('i')||vowel.contains('o')||vowel.contains('u')){
+//     print("The string contains a vowel.");
+//   }
+//   else{
+//     print("The string does not contain any vowel.");
+//   }
+// }
