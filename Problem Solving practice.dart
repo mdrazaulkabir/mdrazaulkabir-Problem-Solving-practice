@@ -134,7 +134,11 @@ import 'dart:math';
 
 
 
-//7.check vowel in string 
+
+
+////Start to module 12
+
+//1.check vowel in string 
 // void main(){
 //   String vowel1=stdin.readLineSync()!;
 //   String vowel=vowel1.toLowerCase();
@@ -144,4 +148,122 @@ import 'dart:math';
 //   else{
 //     print("The string does not contain any vowel.");
 //   }
+// }
+
+
+
+//2. String Transform
+/*Problem Statement
+You are tasked with writing a program that takes a string S as input and transforms it in such a way 
+that after every two characters, the following character is converted to uppercase.
+
+Input
+A string S containing alphanumeric and/or special characters.
+
+Output
+The transformed string where every third character (counting from the beginning) is in uppercase, while the rest of the characters remain in lowercase.
+
+Constraints
+
+3≤∣S∣≤100
+Example 1:
+Input:
+hello123world
+Output:
+heLlo123WorLd
+Example 2:
+Input:
+abcdefg
+Output:
+abCdeFg
+Notes:
+The uppercase transformation should apply only to alphabetic characters; non-alphabetic characters should remain unchanged.
+ 
+ */
+// void main() {
+//   //stdout.write("Enter a string: ");
+//   String? input = stdin.readLineSync();
+
+//   if (input == null || input.isEmpty) {
+//     print("No input provided.");
+//     return;
+//   }
+
+//   StringBuffer result = StringBuffer();
+
+//   for (int i = 0; i < input.length; i++) {
+//     String char = input[i];
+
+//     if ((i + 1) % 3 == 0) {
+//       // Every 3rd character
+//       if (RegExp(r'[a-zA-Z]').hasMatch(char)) {
+//         result.write(char.toUpperCase());
+//       } else {
+//         result.write(char); // Keep non-letters unchanged
+//       }
+//     } else {
+//       // 🔥 Keep all other characters exactly as they are
+//       result.write(char);
+//     }
+//   }
+
+//   print(result.toString());
+// }
+
+
+
+
+//4. Code validation
+/*Problem Statement
+Write a program to create a function that determines whether a string is a valid code. 
+A code must begin with a pound key # and is exactly 6 characters in length. Each character 
+must be a digit from 0-9 or an alphabetic character from A-F. All alphabetic characters may 
+be uppercase or lowercase.
+
+Input
+The program will take a string S as input.
+
+Output
+The output will print either "true" or "false"
+
+Constraints
+0 ≤ |S| ≤ 1000
+Example:
+Enter string
+
+Input:
+#CD5C5C
+Output:
+true
+ */
+//solve:
+
+
+// bool isValidCode(String code) {
+//   // Check if string length is exactly 7 and starts with #
+//   if (code.length != 7 || !code.startsWith('#')) {
+//     return false;
+//   }
+
+//   // Check if all characters after # are in 0-9 or A-F or a-f
+//   for (int i = 1; i < 7; i++) {
+//     String ch = code[i];
+//     if (!RegExp(r'[0-9a-fA-F]').hasMatch(ch)) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// }
+
+// void main() {
+//   //stdout.write("Enter string: ");
+//   String? input = stdin.readLineSync();
+
+//   if (input == null) {
+//     print("false");
+//     return;
+//   }
+
+//   print(isValidCode(input));
 // }
