@@ -212,6 +212,76 @@ The uppercase transformation should apply only to alphabetic characters; non-alp
 
 
 
+//3
+/*
+Sum of Array Elements
+ 
+Problem Statement
+Write a program where user will give an array of elements. You will have to print the sum of elements where each element will be less than median element.
+
+Input
+The input consists of size of the array and the elements of the array. Every input will be unsigned integer number.
+
+Output
+The output will be sum of elements that are lesser than median element.
+
+Constraints
+0 ≤ |S| ≤ 109
+Example:
+Enter size of the array and the elements.
+
+Input:
+6
+30 10 5 40 60 15
+Output:
+30
+ */
+// void main() {
+//   // Read size of the array
+//   int? n = int.tryParse(stdin.readLineSync() ?? '');
+//   if (n == null || n <= 0) {
+//     print(0);
+//     return;
+//   }
+
+//   // Read array elements
+//   String? line = stdin.readLineSync();
+//   if (line == null) {
+//     print(0);
+//     return;
+//   }
+
+//   List<int> arr = line
+//       .trim()
+//       .split(RegExp(r'\s+'))
+//       .map((e) => int.parse(e))
+//       .toList();
+
+//   if (arr.length != n) {
+//     print("Array size mismatch.");
+//     return;
+//   }
+
+//   // Sort array to find median
+//   arr.sort();
+
+//   // Get median
+//   int median;
+//   if (n % 2 == 0) {
+//     median = arr[n ~/ 2]; // upper-middle for even
+//   } else {
+//     median = arr[n ~/ 2];
+//   }
+
+//   // Sum elements less than median
+//   int sum = arr.where((x) => x < median).fold(0, (a, b) => a + b);
+
+//   print(sum);
+// }
+
+
+
+
 
 //4. Code validation
 /*Problem Statement
@@ -267,3 +337,138 @@ true
 
 //   print(isValidCode(input));
 // }
+
+
+
+//5 .
+/*
+Rotate The Matrix
+Problem Statement
+You are given a matrix of integers of size N∗N You have to rotate it 90 degrees clockwise.
+
+Input
+The input consists of N+1 lines. First one having one integer
+N. Next N lines containsN integers each.
+
+Output
+Output the matrix after rotating.
+
+Constraints
+1 ≤ N ≤ 100
+Every integer of the matrix is between 
+
+1 and 10^4
+ 
+Example 1:
+Input:
+2 //this is input line how much you want to take
+
+1 2 
+3 4
+Output:
+3 1
+4 2
+Example 2:
+Input:
+1
+5
+Output:
+5
+ */
+
+// void main() {
+//   // Read matrix size N
+//   int? n = int.tryParse(stdin.readLineSync() ?? '');
+//   if (n == null || n <= 0) {
+//     print("Invalid input for N");
+//     return;
+//   }
+
+//   List<List<int>> matrix = [];
+
+//   for (int i = 0; i < n; i++) {
+//     String? line = stdin.readLineSync();
+//     if (line == null || line.trim().isEmpty) {
+//       print("Invalid row input");
+//       return;
+//     }
+
+//     List<String> parts = line.trim().split(RegExp(r'\s+'));
+//     if (parts.length != n) {
+//       print("Each row must have $n numbers");
+//       return;
+//     }
+
+//     try {
+//       List<int> row = parts.map(int.parse).toList();
+//       matrix.add(row);
+//     } catch (e) {
+//       print("Each element must be a valid integer.");
+//       return;
+//     }
+//   }
+
+//   // Create rotated matrix
+//   List<List<int>> rotated = List.generate(n, (_) => List.filled(n, 0));
+
+//   for (int i = 0; i < n; i++) {
+//     for (int j = 0; j < n; j++) {
+//       rotated[j][n - 1 - i] = matrix[i][j];
+//     }
+//   }
+
+//   // Print rotated matrix
+//   for (var row in rotated) {
+//     print(row.join(' '));
+//   }
+// }
+
+//6.
+/*
+Longest Substring Without Repeating Character
+Problem Statement
+Write a program to find the length of the longest substring in a given string without repeating characters. For example, in the string "abcabcbb," the longest substring without repeating characters is "abc," which has a length of 3.
+
+Input
+The program will take a string as input.
+
+Output
+The output will be the length of the longest substring which will be an integer.
+
+Constraints
+0 ≤ |S| ≤ 1000
+Example:
+Enter string
+
+Input:
+abcabcbb
+Output:
+3
+ */
+
+
+import 'dart:io';
+
+void main() {
+  // Read the input string
+  String input = stdin.readLineSync() ?? '';
+  int maxLength = 0;
+  int start = 0;
+
+  // Map to store last seen index of characters
+  Map<String, int> seen = {};
+
+  for (int end = 0; end < input.length; end++) {
+    String char = input[end];
+
+    // If char was seen and is inside the current window, move the start
+    if (seen.containsKey(char) && seen[char]! >= start) {
+      start = seen[char]! + 1;
+    }
+
+    seen[char] = end; // update last seen index
+    maxLength = maxLength > (end - start + 1) ? maxLength : (end - start + 1);
+  }
+
+  print(maxLength);
+}
